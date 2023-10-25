@@ -26,6 +26,7 @@ const InfoCard: React.FunctionComponent<InfoCardProps> = ({
         rounded-lg
         bg-cyan-900
         hover:bg-cyan-800
+        focus:bg-cyan-800
         border-cyan-200
         shadow-md
         py-2
