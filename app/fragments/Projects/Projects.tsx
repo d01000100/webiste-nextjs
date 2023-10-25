@@ -29,8 +29,12 @@ const Projects = () => {
           prevSlideMessage: "Previous project",
           nextSlideMessage: "Next project",
         }}
-        slidesOffsetAfter={60}
-        slidesOffsetBefore={60}
+        breakpoints={{
+          md: {
+            slidesOffsetAfter: 60,
+            slidesOffsetBefore: 60,
+          },
+        }}
       >
         {PROJECTS.map((project, idx) => (
           <SwiperSlide key={`project-${idx}`} className="!w-fit !h-auto">
