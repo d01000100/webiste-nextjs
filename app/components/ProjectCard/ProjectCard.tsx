@@ -1,7 +1,7 @@
 import classnames from "classnames";
 import Image from "next/image";
 import { HTMLAttributes } from "react";
-import { IconType } from "react-icons";
+import { IconBaseProps, IconType } from "react-icons";
 import { BiLinkExternal } from "react-icons/bi";
 
 export interface ProjectCardProps extends HTMLAttributes<HTMLDivElement> {
@@ -10,7 +10,7 @@ export interface ProjectCardProps extends HTMLAttributes<HTMLDivElement> {
   imgAlt?: string;
   description: string;
   href: string;
-  icon?: IconType;
+  icon?: React.ReactElement<IconBaseProps>;
 }
 
 const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
@@ -51,7 +51,7 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
           gap-4
         "
       >
-        {Icon && <Icon size={36} />}
+        {Icon}
         <h3 className="text-2xl font-semibold grow">{title}</h3>
         {<BiLinkExternal size={28} className="self-start" />}
       </div>

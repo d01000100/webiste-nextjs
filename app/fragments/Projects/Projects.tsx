@@ -6,15 +6,20 @@ import "./Projects.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Scrollbar, Navigation, Mousewheel } from "swiper/modules";
-import classnames from "classnames";
 
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
-import { PROJECTS } from "../../data/Projects";
+import ProjectCard, {
+  ProjectCardProps,
+} from "../../components/ProjectCard/ProjectCard";
 
-const Projects = () => {
+export interface ProjectSectionProps {
+  projects: Array<ProjectCardProps>;
+  title: string;
+}
+
+const ProjectSection = ({ projects, title }: ProjectSectionProps) => {
   return (
     <>
-      <h2 className="text-5xl">Projects</h2>
+      <h2 className="text-5xl">{title}</h2>
       <div className="h-8" />
       <Swiper
         direction="horizontal"
@@ -25,10 +30,6 @@ const Projects = () => {
         modules={[FreeMode, Scrollbar, Navigation, Mousewheel]}
         mousewheel={true}
         spaceBetween="40px"
-        a11y={{
-          prevSlideMessage: "Previous project",
-          nextSlideMessage: "Next project",
-        }}
         breakpoints={{
           md: {
             slidesOffsetAfter: 60,
@@ -36,7 +37,7 @@ const Projects = () => {
           },
         }}
       >
-        {PROJECTS.map((project, idx) => (
+        {projects.map((project, idx) => (
           <SwiperSlide key={`project-${idx}`} className="!w-fit !h-auto">
             <ProjectCard {...project} />
           </SwiperSlide>
@@ -46,4 +47,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectSection;
