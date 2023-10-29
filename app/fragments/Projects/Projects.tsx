@@ -19,7 +19,7 @@ export interface ProjectSectionProps {
 const ProjectSection = ({ projects, title }: ProjectSectionProps) => {
   return (
     <>
-      <h2 className="text-5xl">{title}</h2>
+      <h2 className="md:text-5xl text-3xl">{title}</h2>
       <div className="h-8" />
       <Swiper
         direction="horizontal"

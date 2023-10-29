@@ -63,7 +63,8 @@ const TimelineEntry: React.FunctionComponent<TimelineEntryProps> = ({
       >
         <h3
           className="
-            text-3xl
+            text-2xl
+            md:text-3xl
             font-semibold
             pb-1
           "

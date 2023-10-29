@@ -5,6 +5,7 @@ import { BULLETS, INTRO } from "./data/Info";
 import { PROJECTS, PUBLICATIONS } from "./data/Projects";
 import TimelineEntry from "./components/Timeline/TimelineEntry";
 import { EXPERIENCE } from "./data/Experience";
+import Footer from "./fragments/Footer/Footer";
 
 export default function Home() {
   return (
@@ -65,7 +66,7 @@ export default function Home() {
         <div className="h-8" />
         <ProjectSection projects={PUBLICATIONS} title="Publications" />
         <div className="h-8" />
-        <h2 className="text-5xl">Experience</h2>
+        <h2 className="md:text-5xl text-3xl">Experience</h2>
         <div className="h-8" />
         <div>
           {EXPERIENCE.map((entry, idx) => (
@@ -73,6 +74,8 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <div className="h-8"></div>
+      <Footer />
     </main>
   );
 }
