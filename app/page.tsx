@@ -9,45 +9,22 @@ import Footer from "./fragments/Footer/Footer";
 
 export default function Home() {
   return (
-    <main className="px-4 md:px-20 max-w-[1440px] m-auto">
-      <h1
-        className="
-            text-4xl
-            md:text-7xl
-            py-7
-            md:py-12
-          "
-      >
+    <main className="m-auto max-w-[1440px] px-4 md:px-20">
+      <h1 className="py-7 text-4xl md:py-12 md:text-7xl">
         Hello!&nbsp;
         <br className="md:hidden" />I am Daniel Casado
       </h1>
-      <div
-        className="
-            flex
-            flex-row
-            gap-4
-            md:gap-8
-            align-top
-          "
-      >
+      <div className="flex flex-row gap-4 align-top md:gap-8">
         <Image
           src="/profile-pic.jpeg"
           alt="Headshot picture of Daniel Casado"
           width={800}
           height={800}
-          className="
-              w-32
-              h-44
-              md:h-auto
-              md:w-[400px]
-              aspect-auto
-              object-cover
-              rounded-3xl
-            "
+          className="aspect-auto h-44 w-32 rounded-3xl object-cover md:h-auto md:w-[400px]"
         />
         <div className="flex flex-col gap-8">
           <div className="whitespace-break-spaces">
-            <p className="text-lg md:text-xl mb-2">{INTRO}</p>
+            <p className="mb-2 text-lg md:text-xl">{INTRO}</p>
             <ul className="text-md md:text-lg">
               {BULLETS.map((bullet, idx) => (
                 <li key={`intro-bullet-${idx}`} className="list-item">
@@ -61,12 +38,12 @@ export default function Home() {
       </div>
       <div>
         <div className="h-16" />
-        <ContactInfo className="md:hidden flex mb-8" />
+        <ContactInfo className="mb-8 flex md:hidden" />
         <ProjectSection projects={PROJECTS} title="Projects" />
         <div className="h-8" />
         <ProjectSection projects={PUBLICATIONS} title="Publications" />
         <div className="h-8" />
-        <h2 className="md:text-5xl text-3xl">Experience</h2>
+        <h2 className="text-3xl md:text-5xl">Experience</h2>
         <div className="h-8" />
         <div>
           {EXPERIENCE.map((entry, idx) => (

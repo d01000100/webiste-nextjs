@@ -23,36 +23,12 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
 }) => {
   return (
     <a
-      className="
-        flex
-        flex-col
-        gap-6
-        items-stretch
-        bg-cyan-900
-        hover:bg-cyan-800
-        focus:bg-cyan-800
-        py-6
-        px-6
-        w-80
-        h-full
-        md:w-[480px]
-        rounded-xl
-        border
-        border-cyan-600
-      "
+      className="flex h-full min-h-0 w-80 min-w-0 flex-col items-stretch gap-6 rounded-xl border border-cyan-600 bg-cyan-900 px-6 py-6 hover:bg-cyan-800 focus:bg-cyan-800 md:w-[480px]"
       href={href}
     >
-      <div
-        className="
-          header
-          flex
-          flex-row
-          items-center
-          gap-4
-        "
-      >
+      <div className="header flex flex-row items-center gap-4">
         {Icon}
-        <h3 className="text-xl md:text-2xl font-semibold grow">{title}</h3>
+        <h3 className="grow text-xl font-semibold md:text-2xl">{title}</h3>
         {<BiLinkExternal size={28} className="self-start" />}
       </div>
       {imgSrc && (
@@ -61,20 +37,13 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
           width={450}
           height={450}
           alt={imgAlt ?? ""}
-          className="
-              rounded-lg
-              mx-auto
-              w-full
-              object-cover
-              object-top
-              aspect-video
-            "
+          className="mx-auto aspect-video w-full rounded-lg object-cover object-top"
         />
       )}
       <div
         className={classnames({
           "text-lg": imgSrc,
-          "text-2xl text-center flex items-center justify-center h-3/4 w-full":
+          "flex h-3/4 w-full items-center justify-center text-center text-2xl":
             !imgSrc,
         })}
       >

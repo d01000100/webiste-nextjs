@@ -19,30 +19,13 @@ export interface ProjectSectionProps {
 const ProjectSection = ({ projects, title }: ProjectSectionProps) => {
   return (
     <>
-      <h2 className="md:text-5xl text-3xl">{title}</h2>
+      <h2 className="text-3xl md:text-5xl">{title}</h2>
       <div className="h-8" />
-      <Swiper
-        direction="horizontal"
-        navigation={true}
-        scrollbar={true}
-        freeMode={true}
-        slidesPerView="auto"
-        modules={[FreeMode, Scrollbar, Navigation, Mousewheel]}
-        mousewheel={true}
-        spaceBetween="40px"
-        breakpoints={{
-          md: {
-            slidesOffsetAfter: 60,
-            slidesOffsetBefore: 60,
-          },
-        }}
-      >
+      <div className="flex flex-row gap-10 overflow-x-auto">
         {projects.map((project, idx) => (
-          <SwiperSlide key={`project-${idx}`} className="!w-fit !h-auto">
-            <ProjectCard {...project} />
-          </SwiperSlide>
+          <ProjectCard key={`${project.title}-${idx}`} {...project} />
         ))}
-      </Swiper>
+      </div>
     </>
   );
 };

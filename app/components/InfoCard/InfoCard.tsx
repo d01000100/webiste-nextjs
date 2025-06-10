@@ -18,24 +18,7 @@ const InfoCard: React.FunctionComponent<InfoCardProps> = ({
 
   return (
     <Component
-      className="
-        flex
-        flex-row
-        gap-4
-        items-center
-        rounded-lg
-        bg-cyan-900
-        hover:bg-cyan-800
-        focus:bg-cyan-800
-        border-cyan-200
-        shadow-md
-        py-2
-        px-4
-        flex-auto
-        md:flex-initial
-        w-60
-        h-16
-      "
+      className="flex h-16 w-60 flex-auto flex-row items-center gap-4 rounded-lg border-cyan-200 bg-cyan-900 px-4 py-2 shadow-md hover:bg-cyan-800 focus:bg-cyan-800 md:flex-initial"
       href={href}
     >
       <Icon size={28} />
