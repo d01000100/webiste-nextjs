@@ -17,16 +17,8 @@ const ContactInfo: React.FunctionComponent<ContactInfoProps> = ({
     <div
       {...divProps}
       className={classnames(
-        `
-          flex
-          flex-row
-          flex-wrap
-          gap-4
-          justify-center
-          md:justify-start
-          items-stretch
-        `,
-        className
+        `flex flex-row flex-wrap items-stretch justify-center gap-4 md:justify-start`,
+        className,
       )}
     >
       <InfoCard

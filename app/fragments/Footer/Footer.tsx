@@ -1,40 +1,16 @@
+import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer
-      className="
-        w-full
-        flex
-        flex-row
-        justify-end
-      "
-    >
-      <div
-        className="
-        w-fit
-        bg-slate-600
-        border-t
-        border-x
-        rounded-t-md
-        border-slate-400
-        "
-      >
-        <a
+    <footer className="flex w-full flex-row justify-end">
+      <div className="w-fit rounded-t-md border-x border-t border-slate-400 bg-slate-600">
+        <Link
           href="https://github.com/d01000100/webiste-nextjs"
-          className="
-            text-lg
-            underline
-            flex
-            flex-row
-            items-center
-            gap-2
-            px-2
-            py-1
-          "
+          className="flex flex-row items-center gap-2 px-2 py-1 text-lg underline"
         >
-          <FaGithub className="inline-block md:w-6 md:h-6" /> Code for this page
-        </a>
+          <FaGithub className="inline-block md:h-6 md:w-6" /> Code for this page
+        </Link>
       </div>
     </footer>
   );

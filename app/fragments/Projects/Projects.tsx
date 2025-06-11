@@ -1,12 +1,5 @@
 "use client";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "./Projects.scss";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Scrollbar, Navigation, Mousewheel } from "swiper/modules";
-
 import ProjectCard, {
   ProjectCardProps,
 } from "../../components/ProjectCard/ProjectCard";
@@ -19,30 +12,14 @@ export interface ProjectSectionProps {
 const ProjectSection = ({ projects, title }: ProjectSectionProps) => {
   return (
     <>
-      <h2 className="md:text-5xl text-3xl">{title}</h2>
-      <div className="h-8" />
-      <Swiper
-        direction="horizontal"
-        navigation={true}
-        scrollbar={true}
-        freeMode={true}
-        slidesPerView="auto"
-        modules={[FreeMode, Scrollbar, Navigation, Mousewheel]}
-        mousewheel={true}
-        spaceBetween="40px"
-        breakpoints={{
-          md: {
-            slidesOffsetAfter: 60,
-            slidesOffsetBefore: 60,
-          },
-        }}
-      >
-        {projects.map((project, idx) => (
-          <SwiperSlide key={`project-${idx}`} className="!w-fit !h-auto">
-            <ProjectCard {...project} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <h2 className="mb-8 text-3xl md:text-5xl">{title}</h2>
+      <div className="w-full overflow-x-auto">
+        <div className="flex w-fit flex-row items-stretch gap-10">
+          {projects.map((project, idx) => (
+            <ProjectCard key={`${project.title}-${idx}`} {...project} />
+          ))}
+        </div>
+      </div>
     </>
   );
 };

@@ -1,5 +1,4 @@
 import { HTMLAttributes } from "react";
-import css from "./TimelineEntry.module.scss";
 
 export interface TimelineEntryProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -17,61 +16,15 @@ const TimelineEntry: React.FunctionComponent<TimelineEntryProps> = ({
   ...divProps
 }) => {
   return (
-    <div
-      {...divProps}
-      className="
-        entry
-        group
-        flex
-        flex-row
-        content:bg-red-400
-      "
-    >
-      <div className="sidebar px-4 flex flex-col items-center">
-        <div
-          className="
-            w-1
-            bg-slate-400
-            group-first:bg-transparent
-            h-[11px]
-          "
-        ></div>
-        <div
-          className={`
-            bg-slate-400
-            rounded-full
-            w-4
-            h-4
-          `}
-        ></div>
-        <div
-          className="
-            w-1
-            bg-slate-400
-            group-last:bg-transparent
-            flex-grow
-          "
-        ></div>
+    <div {...divProps} className="entry content:bg-red-400 group flex flex-row">
+      <div className="sidebar flex flex-col items-center px-4">
+        <div className="h-[11px] w-1 bg-slate-400 group-first:bg-transparent"></div>
+        <div className={`h-4 w-4 rounded-full bg-slate-400`}></div>
+        <div className="w-1 flex-grow bg-slate-400 group-last:bg-transparent"></div>
       </div>
-      <div
-        className="
-          content
-          flex-col
-          w-full
-          group-[:not(:last-child)]:pb-10
-        "
-      >
-        <h3
-          className="
-            text-2xl
-            md:text-3xl
-            font-semibold
-            pb-1
-          "
-        >
-          {title}
-        </h3>
-        <p className="text-base text-slate-300 pb-2">
+      <div className="content w-full flex-col group-[:not(:last-child)]:pb-10">
+        <h3 className="pb-1 text-2xl font-semibold md:text-3xl">{title}</h3>
+        <p className="pb-2 text-base text-slate-300">
           {startDate}
           {endDate && <span> {endDate}</span>}
         </p>
