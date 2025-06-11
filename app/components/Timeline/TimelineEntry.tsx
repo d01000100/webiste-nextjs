@@ -1,5 +1,4 @@
 import { HTMLAttributes } from "react";
-import css from "./TimelineEntry.module.scss";
 
 export interface TimelineEntryProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
