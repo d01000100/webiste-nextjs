@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { IconType } from "react-icons";
 
@@ -14,7 +15,7 @@ const InfoCard: React.FunctionComponent<InfoCardProps> = ({
   fieldName,
   value,
 }) => {
-  const Component = href ? "a" : "div";
+  const Component = href ? Link : "div";
 
   return (
     <Component

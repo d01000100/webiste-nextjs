@@ -1,5 +1,6 @@
 import classnames from "classnames";
 import Image from "next/image";
+import Link from "next/link";
 import { HTMLAttributes } from "react";
 import { IconBaseProps, IconType } from "react-icons";
 import { BiLinkExternal } from "react-icons/bi";
@@ -22,8 +23,8 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
   icon: Icon,
 }) => {
   return (
-    <a
-      className="flex h-full min-h-0 w-80 min-w-0 flex-col items-stretch gap-6 rounded-xl border border-cyan-600 bg-cyan-900 px-6 py-6 hover:bg-cyan-800 focus:bg-cyan-800 md:w-[480px]"
+    <Link
+      className="flex w-80 min-w-0 flex-col items-stretch gap-6 rounded-xl border border-cyan-600 bg-cyan-900 px-6 py-6 hover:bg-cyan-800 focus:bg-cyan-800 md:w-[480px]"
       href={href}
     >
       <div className="header flex flex-row items-center gap-4">
@@ -49,7 +50,7 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
       >
         <p>{description}</p>
       </div>
-    </a>
+    </Link>
   );
 };
 
