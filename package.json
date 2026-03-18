@@ -6,13 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "clean": "rm -drf node_modules && rm -drf .next"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
     "classnames": "^2.5.1",
-    "next": "15.5.13",
+    "next": "16.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.12.0"
@@ -21,8 +21,8 @@
     "@types/node": "20.19.37",
     "@types/react": "18.3.28",
     "autoprefixer": "^10.4.27",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "^15.5.13",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.2.0",
     "postcss": "^8.5.8",
     "prettier": "3.8.1",
     "prettier-plugin-tailwindcss": "^0.6.14",
