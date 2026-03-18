@@ -21,6 +21,7 @@ export default function Home() {
           width={800}
           height={800}
           className="aspect-auto h-44 w-32 rounded-3xl object-cover md:h-auto md:w-[400px]"
+          loading="eager"
         />
         <div className="flex flex-col gap-8">
           <div className="whitespace-break-spaces">

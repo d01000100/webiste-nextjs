@@ -6,27 +6,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "clean": "rm -drf node_modules && rm -drf .next"
   },
   "dependencies": {
-    "@vercel/analytics": "^1.5.0",
+    "@vercel/analytics": "^1.6.1",
     "classnames": "^2.5.1",
-    "eslint": "^9.28.0",
-    "eslint-config-next": "13.4.10",
-    "next": "15.2.4",
+    "next": "16.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.12.0"
   },
   "devDependencies": {
-    "@types/node": "20.8.8",
-    "@types/react": "18.2.31",
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.4",
-    "prettier": "3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.12",
-    "tailwindcss": "^3.4.17"
+    "@types/node": "20.19.37",
+    "@types/react": "18.3.28",
+    "autoprefixer": "^10.4.27",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.2.0",
+    "postcss": "^8.5.8",
+    "prettier": "3.8.1",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^3.4.19"
   },
   "packageManager": "pnpm@10.10.0"
 }

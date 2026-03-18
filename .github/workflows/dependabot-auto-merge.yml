@@ -1,0 +1,67 @@
+name: Dependabot Auto-Merge
+
+on: pull_request_target
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Wait for CI to complete
+        uses: fountainhead/action-wait-for-check@v1.2.0
+        id: wait-for-ci
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: Build & Lint
+          ref: ${{ github.event.pull_request.head.sha }}
+          timeoutSeconds: 600
+          intervalSeconds: 30
+
+      - name: Auto-approve and merge minor/patch updates
+        if: >-
+          steps.wait-for-ci.outputs.conclusion == 'success' &&
+          (steps.metadata.outputs.update-type == 'version-update:semver-minor' ||
+           steps.metadata.outputs.update-type == 'version-update:semver-patch')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr review --approve "$PR_URL"
+          gh pr merge --auto --squash "$PR_URL"
+
+      - name: Label failed security updates
+        if: >-
+          steps.wait-for-ci.outputs.conclusion == 'failure' &&
+          steps.metadata.outputs.alert-state == 'OPEN'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          DEPS: ${{ steps.metadata.outputs.dependency-names }}
+        run: |
+          gh pr edit "$PR_URL" --add-label "security,ci-failure"
+          gh pr comment "$PR_URL" --body "## ⚠️ Security update failed CI
+
+          **Dependencies:** $DEPS
+          **Alert state:** ${{ steps.metadata.outputs.alert-state }}
+
+          This PR addresses a security vulnerability but failed the CI checks. Please review and fix manually."
+
+      - name: Label other CI failures
+        if: >-
+          steps.wait-for-ci.outputs.conclusion == 'failure' &&
+          steps.metadata.outputs.alert-state != 'OPEN'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr edit "$PR_URL" --add-label "ci-failure"
