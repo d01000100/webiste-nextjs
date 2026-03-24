@@ -2,7 +2,7 @@ import classnames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import { HTMLAttributes } from "react";
-import { IconBaseProps, IconType } from "react-icons";
+import { IconBaseProps } from "react-icons";
 import { BiLinkExternal } from "react-icons/bi";
 
 export interface ProjectCardProps extends HTMLAttributes<HTMLDivElement> {
@@ -39,6 +39,7 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
           height={450}
           alt={imgAlt ?? ""}
           className="mx-auto aspect-video w-full rounded-lg object-cover object-top"
+          loading="eager"
         />
       )}
       <div
